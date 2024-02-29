@@ -304,69 +304,91 @@ if __name__ == "__main__" :
 
     base_model = Resnet50_Arc_loss()
     
-    mycroft_hw = HotwordDetector(
-        hotword="mycroft",
-        model = base_model,
-        reference_file=os.path.join(samples_loc,"mycroft_ref.json"),
+    #mycroft_hw = HotwordDetector(
+    #    hotword="mycroft",
+    #    model = base_model,
+    #    reference_file=os.path.join(samples_loc,"mycroft_ref.json"),
+    #    threshold=0.7,
+    #    relaxation_time=2
+    #)
+    
+    #alexa_hw = HotwordDetector(
+    #        hotword="alexa",
+    #        model=base_model,
+    #        reference_file=os.path.join(samples_loc,"alexa_ref.json"),
+    #        threshold=0.7,
+    #        relaxation_time=2,
+    #        #verbose=True
+    #)
+    
+    #balloon_hw = HotwordDetector(
+    #    hotword="balloon",
+    #    model=base_model,
+    #    reference_file=os.path.join(samples_loc,"balloon_ref.json"),
+    #    threshold=0.65,
+    #    relaxation_time=2,
+    #    #verbose=True
+    #)
+    
+    #computer_hw = HotwordDetector(
+    #    hotword="computer",
+    #    model=base_model,
+    #    reference_file=os.path.join(samples_loc,"computer_ref.json"),
+    #    threshold=0.7,
+    #    relaxation_time=2,
+    #    #verbose=True
+    #)
+    
+    #mobile_hw = HotwordDetector(
+    #    hotword="mobile",
+    #    model = base_model,
+    #    reference_file=os.path.join(samples_loc,"mobile_ref.json"),
+    #    threshold=0.7,
+    #    relaxation_time=2,
+    #    #verbose=True
+    #)
+    
+    #lights_on = HotwordDetector(
+    #    hotword="lights_on",
+    #    model = base_model,
+    #    reference_file=os.path.join(samples_loc,"lights_on_ref.json"),
+    #    threshold=0.7,
+    #    relaxation_time=2    
+    #)
+    
+    
+    #lights_off = HotwordDetector(
+    #    hotword="lights_on",
+    #    model = base_model,
+    #    reference_file=os.path.join(samples_loc,"lights_off_ref.json"),
+    #    threshold=0.7,
+    #    relaxation_time=2    
+    #)
+    #hey_walker = HotwordDetector(
+    #    hotword="hey_walker",
+    #    model=base_model,
+    #    reference_file=os.path.join(samples_loc, "hey-walker_ref.json"),
+    #    threshold=0.7,
+    #    relaxation_time=2
+    #)
+    #hey_skywalker = HotwordDetector(
+    #    hotword="hey_skywalker",
+    #    model=base_model,
+    #    reference_file=os.path.join(samples_loc, "hey-skywalker_ref.json"),
+    #    threshold=0.7,
+    #    relaxation_time=2
+    #)
+
+    hey_skywalker = HotwordDetector(
+        hotword="hey_skywalker",
+        model=base_model,
+        reference_file=os.path.join(samples_loc, "hey-skywalker_ref.json"),
         threshold=0.7,
         relaxation_time=2
     )
     
-    alexa_hw = HotwordDetector(
-            hotword="alexa",
-            model=base_model,
-            reference_file=os.path.join(samples_loc,"alexa_ref.json"),
-            threshold=0.7,
-            relaxation_time=2,
-            #verbose=True
-    )
-    
-    balloon_hw = HotwordDetector(
-        hotword="balloon",
-        model=base_model,
-        reference_file=os.path.join(samples_loc,"balloon_ref.json"),
-        threshold=0.65,
-        relaxation_time=2,
-        #verbose=True
-    )
-    
-    computer_hw = HotwordDetector(
-        hotword="computer",
-        model=base_model,
-        reference_file=os.path.join(samples_loc,"computer_ref.json"),
-        threshold=0.7,
-        relaxation_time=2,
-        #verbose=True
-    )
-    
-    mobile_hw = HotwordDetector(
-        hotword="mobile",
-        model = base_model,
-        reference_file=os.path.join(samples_loc,"mobile_ref.json"),
-        threshold=0.7,
-        relaxation_time=2,
-        #verbose=True
-    )
-    
-    lights_on = HotwordDetector(
-        hotword="lights_on",
-        model = base_model,
-        reference_file=os.path.join(samples_loc,"lights_on_ref.json"),
-        threshold=0.7,
-        relaxation_time=2    
-    )
-    
-    
-    lights_off = HotwordDetector(
-        hotword="lights_on",
-        model = base_model,
-        reference_file=os.path.join(samples_loc,"lights_off_ref.json"),
-        threshold=0.7,
-        relaxation_time=2    
-    )
-    
     multi_hotword_detector = MultiHotwordDetector(
-        [mycroft_hw, alexa_hw, balloon_hw, computer_hw, mobile_hw, lights_on, lights_off],
+        [hey_skywalker],
         model=base_model,
         continuous=True,
     )
